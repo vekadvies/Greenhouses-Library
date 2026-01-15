@@ -1,7 +1,6 @@
 within Greenhouses.Components.Greenhouse.BasicComponents;
 model AirVP
   "Greenhouse air vapour pressure by numerical integration of the differential equation of the moisture content"
-  import Greenhouse = Greenhouses;
 
   /*********************** Parameters ***********************/
   Modelica.Units.SI.Volume V_air=1e3 annotation (Dialog(group="Varying inputs"));
@@ -21,11 +20,11 @@ model AirVP
   Modelica.Units.SI.Pressure VP(start=VP_start);
 
   /******************** Connectors ********************/
-  Greenhouse.Interfaces.Vapour.WaterMassPort_a port(VP(start=VP_start))
+  Interfaces.Vapour.WaterMassPort_a port(VP(start=VP_start))
     "Saturation pressure" annotation (Placement(transformation(extent={{60,40},
             {80,60}}), iconTransformation(extent={{-10,-10},{10,10}})));
 
-  Greenhouse.Flows.Sources.Vapour.PrescribedPressure prescribedPressure
+  Flows.Sources.Vapour.PrescribedPressure prescribedPressure
     annotation (Placement(transformation(extent={{-50,6},{-30,26}})));
 protected
   Modelica.Blocks.Sources.RealExpression portVP(y=VP) "Port temperature"

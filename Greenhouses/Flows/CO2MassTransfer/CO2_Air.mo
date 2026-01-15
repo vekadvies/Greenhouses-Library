@@ -1,6 +1,5 @@
 within Greenhouses.Flows.CO2MassTransfer;
 model CO2_Air "CO2 mass balance of an air volume"
-  import Greenhouse = Greenhouses;
 
   /*********************** Parameters ***********************/
   Modelica.Units.SI.Length cap_CO2=4
@@ -18,11 +17,11 @@ model CO2_Air "CO2 mass balance of an air volume"
   Real CO2_ppm;
 
   /******************** Connectors ********************/
-  Greenhouse.Interfaces.CO2.CO2Port_a port(CO2(start=CO2_start))
+  Interfaces.CO2.CO2Port_a port(CO2(start=CO2_start))
     "Partial CO2 pressure" annotation (Placement(transformation(extent={{60,40},
             {80,60}}), iconTransformation(extent={{-10,-10},{10,10}})));
 
-  Greenhouse.Flows.Sources.CO2.PrescribedConcentration prescribedPressure
+  Flows.Sources.CO2.PrescribedConcentration prescribedPressure
     annotation (Placement(transformation(extent={{-50,6},{-30,26}})));
 protected
   Modelica.Blocks.Sources.RealExpression portCO2(y=CO2) "Port temperature"

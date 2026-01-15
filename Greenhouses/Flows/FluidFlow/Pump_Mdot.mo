@@ -1,6 +1,5 @@
 within Greenhouses.Flows.FluidFlow;
 model Pump_Mdot "Pump model - Prescribed mass flow rate"
-  import Greenhouses;
   /***************************************** FLUID *****************************************/
   replaceable package Medium = Modelica.Media.Water.ConstantPropertyLiquidWater constrainedby
     Modelica.Media.Interfaces.PartialMedium "Medium in the component"

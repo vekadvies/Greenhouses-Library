@@ -5,8 +5,6 @@ model Gnielinski2010 "Gnielinski pipe equations"
   extends
     Greenhouses.Flows.FluidFlow.HeatTransfer.BaseClasses.PartialPipeCorrelation;
 
-  import Modelica.Constants.pi;
-
   // General variables
   parameter Modelica.Units.SI.Length d_i(min=0) = d_h
     "Hydraulic diameter (2*V/A_lateral)";

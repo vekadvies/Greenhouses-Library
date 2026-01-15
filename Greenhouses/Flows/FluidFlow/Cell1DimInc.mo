@@ -1,6 +1,5 @@
 within Greenhouses.Flows.FluidFlow;
 model Cell1DimInc "1-D incompressible fluid flow model"
-  import Greenhouse = Greenhouses;
   replaceable package Medium = Modelica.Media.Water.ConstantPropertyLiquidWater constrainedby
     Modelica.Media.Interfaces.PartialMedium "Medium in the component"
       annotation (choicesAllMatching = true);
@@ -14,7 +13,7 @@ model Cell1DimInc "1-D incompressible fluid flow model"
                                       OutFlow(redeclare package Medium = Medium)
     annotation (Placement(transformation(extent={{80,-10},{100,10}}),
         iconTransformation(extent={{80,-18},{120,20}})));
-  Greenhouse.Interfaces.Heat.ThermalPortL Wall_int annotation (Placement(
+  Interfaces.Heat.ThermalPortL Wall_int annotation (Placement(
         transformation(extent={{-28,40},{32,60}}), iconTransformation(extent={{
             -40,40},{40,60}})));
 /************ Geometric characteristics **************/

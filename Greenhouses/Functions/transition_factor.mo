@@ -3,7 +3,6 @@ function transition_factor
   "Get weighting factor for smooth transition (from 0 to 1)"
   extends Modelica.Icons.Function;
   import Modelica.Constants.pi;
-  import Modelica.Constants.e;
 
   input Real start =    0.25 "start of transition interval";
   input Real stop =     0.75 "end of transition interval";
@@ -68,7 +67,7 @@ algorithm
     elseif (order == 2) then
       a * ( 1/3 * cos(phi)^2 * sin(phi) + 2/3 * sin(phi))                       + b
     else
-      1 - (A + ( K-A)  / ( 1 + Q * e^(-B*(X - M)))^(1/nu))));
+      1 - (A + ( K-A)  / ( 1 + Q * exp(-B*(X - M)))^(1/nu))));
 //     elseif (order == 3) then
 //       a * ( 1/4 * cos(phi)^3 * sin(phi) + 3/8 * cos(phi) * sin(phi) + 3/8*phi)  + b
 

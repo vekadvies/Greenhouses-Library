@@ -1,6 +1,5 @@
 within Greenhouses.Flows.HeatTransfer;
 model SoilConduction
-  import Greenhouse = Greenhouses;
   parameter Modelica.Units.SI.Area A "floor surface";
   parameter Integer N_c(min=0)=2 "number of concrete layers";
   parameter Integer N_s(min=1)=5 "number of soil layers";
@@ -23,25 +22,25 @@ model SoilConduction
         iconTransformation(extent={{-10,66},{10,86}})));
   Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature soil
     annotation (Placement(transformation(extent={{84,-50},{64,-30}})));
-  Greenhouse.Flows.HeatTransfer.ThermalConductor TC_ss(G=lambda_s/(th_s[N_s]/2)
+  Flows.HeatTransfer.ThermalConductor TC_ss(G=lambda_s/(th_s[N_s]/2)
         *A) annotation (Placement(transformation(extent={{46,-46},{58,-34}})));
   Modelica.Blocks.Interfaces.RealInput T_layer_Nplus1
     annotation (Placement(transformation(extent={{120,-100},{80,-60}}),
         iconTransformation(extent={{120,-100},{80,-60}})));
-  Greenhouse.Flows.HeatTransfer.ThermalConductor TC_cc(G=G_cc)
+  Flows.HeatTransfer.ThermalConductor TC_cc(G=G_cc)
     annotation (Placement(transformation(extent={{-34,38},{-22,50}})));
-  Greenhouse.Flows.HeatTransfer.ThermalConductor TC_c[N_c - 1](G=G_c)
+  Flows.HeatTransfer.ThermalConductor TC_c[N_c - 1](G=G_c)
     annotation (Placement(transformation(extent={{-84,64},{-64,84}})));
-  Greenhouse.Components.Greenhouse.BasicComponents.Layer Layer_c[N_c - 1](
+  Components.Greenhouse.BasicComponents.Layer Layer_c[N_c - 1](
     each rho=1,
     each c_p=2e6,
     each A=A,
     V=A*th_c,
     each steadystate=steadystate)
     annotation (Placement(transformation(extent={{-60,64},{-40,84}})));
-  Greenhouse.Flows.HeatTransfer.ThermalConductor TC_s[N_s](G=G_s)
+  Flows.HeatTransfer.ThermalConductor TC_s[N_s](G=G_s)
     annotation (Placement(transformation(extent={{-4,14},{16,34}})));
-  Greenhouse.Components.Greenhouse.BasicComponents.Layer Layer_s[N_s](
+  Components.Greenhouse.BasicComponents.Layer Layer_s[N_s](
     each rho=1,
     each c_p=1.73e6,
     each A=A,

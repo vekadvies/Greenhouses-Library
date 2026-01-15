@@ -1,7 +1,6 @@
 within Greenhouses.Flows.FluidFlow;
 model Flow1DimInc
   "1-D fluid flow model (finite volume discretization - incompressible fluid model). Based on the Cell component"
-  import Greenhouse = Greenhouses;
   replaceable package Medium = Modelica.Media.Water.ConstantPropertyLiquidWater constrainedby
     Modelica.Media.Interfaces.PartialMedium "Medium in the component"
       annotation (choicesAllMatching = true);
@@ -87,13 +86,13 @@ protected
   Modelica.Units.SI.SpecificEnthalpy hnode_[N + 1];
   /*************************************** EQUATION *************************************/
 public
-  Greenhouse.Interfaces.Heat.HeatPortConverter_ThermoCycle_Modelica
+  Interfaces.Heat.HeatPortConverter_ThermoCycle_Modelica
     heatPort_ThermoCycle_Modelica(
     N=N,
     A=A,
     Nt=Nt) annotation (Placement(transformation(extent={{-8,44},{12,64}})));
 public
-  Greenhouse.Interfaces.Heat.HeatPorts_a[N] heatPorts_a annotation (Placement(
+  Interfaces.Heat.HeatPorts_a[N] heatPorts_a annotation (Placement(
         transformation(extent={{-8,72},{12,92}}), iconTransformation(extent={{-40,
             40},{40,60}})));
 equation
