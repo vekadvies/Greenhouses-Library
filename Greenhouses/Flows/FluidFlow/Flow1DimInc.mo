@@ -51,8 +51,7 @@ public
         N) "Start value of enthalpy vector (initialized by default)"
     annotation (Dialog(tab="Initialization"));
 /***************************************   NUMERICAL OPTIONS  ***************************************************/
-  import Greenhouses.Functions.Enumerations.Discretizations;
-  parameter Discretizations Discretization=Greenhouse.Functions.Enumerations.Discretizations.centr_diff
+  parameter Functions.Enumerations.Discretizations Discretization=Functions.Enumerations.Discretizations.centr_diff
     "Selection of the spatial discretization scheme"  annotation (Dialog(tab="Numerical options"));
   parameter Boolean steadystate=true
     "if true, sets the derivative of h (working fluids enthalpy in each cell) to zero during Initialization"
