@@ -12,9 +12,9 @@ public
             {-90,30}}, rotation=0)));
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b HeatPort_b annotation (Placement(transformation(extent={{90,10},
             {110,30}},rotation=0)));
-  Greenhouses.Interfaces.Vapour.WaterMassPort_a MassPort_a annotation (
+  Interfaces.Vapour.WaterMassPort_a MassPort_a annotation (
       Placement(transformation(extent={{-110,-30},{-90,-10}}, rotation=0)));
-  Greenhouses.Interfaces.Vapour.WaterMassPort_b MassPort_b annotation (
+  Interfaces.Vapour.WaterMassPort_b MassPort_b annotation (
       Placement(transformation(extent={{90,-30},{110,-10}}, rotation=0)));
 equation
   dP = MassPort_a.VP - MassPort_b.VP;

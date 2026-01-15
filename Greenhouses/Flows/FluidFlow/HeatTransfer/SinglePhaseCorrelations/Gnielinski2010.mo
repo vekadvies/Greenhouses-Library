@@ -1,9 +1,9 @@
 within Greenhouses.Flows.FluidFlow.HeatTransfer.SinglePhaseCorrelations;
 model Gnielinski2010 "Gnielinski pipe equations"
   extends
-    Greenhouses.Flows.FluidFlow.HeatTransfer.BaseClasses.PartialSinglePhaseCorrelation;
+    Flows.FluidFlow.HeatTransfer.BaseClasses.PartialSinglePhaseCorrelation;
   extends
-    Greenhouses.Flows.FluidFlow.HeatTransfer.BaseClasses.PartialPipeCorrelation;
+    Flows.FluidFlow.HeatTransfer.BaseClasses.PartialPipeCorrelation;
 
   // General variables
   parameter Modelica.Units.SI.Length d_i(min=0) = d_h
@@ -81,7 +81,7 @@ equation
   Nu_m        = numerator / denominator *( 1 + (d_i/l)^(2./3.))*K;
 
   // Instead of the linear transition, we employ a smoother one
-  gamma = Greenhouses.Functions.transition_factor(
+  gamma = Functions.transition_factor(
     start=2300,
     stop=1e4,
     position=Re);

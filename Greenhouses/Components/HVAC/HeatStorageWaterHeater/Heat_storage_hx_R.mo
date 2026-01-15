@@ -97,7 +97,7 @@ model Heat_storage_hx_R
     pstart=100000,
     Tstart_inlet=363.15,
     Tstart_outlet=343.15,
-    Discretization=Greenhouses.Functions.Enumerations.Discretizations.upwind_AllowFlowReversal)
+    Discretization=Functions.Enumerations.Discretizations.upwind_AllowFlowReversal)
     annotation (Placement(transformation(extent={{20,-84},{-16,-50}})));
   Cell1DimInc_2ports                                                           cell1DimInc_hx[N](
     redeclare package Medium = MainFluid,
@@ -107,7 +107,7 @@ model Heat_storage_hx_R
     each pstart=pstart_tank,
     hstart=hstart_tank,
     redeclare model HeatTransfer =
-        Greenhouses.Flows.FluidFlow.HeatTransfer.Constant,
+        Flows.FluidFlow.HeatTransfer.Constant,
     each Vi=V_tank/(N2 - N1 + 1),
     each Ai=A_amb/(N2 - N1 + 1),
     each A_hx=A_hx/(N2 - N1 + 1))

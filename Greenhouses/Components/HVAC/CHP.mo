@@ -42,7 +42,7 @@ model CHP
     Ai=A,
     hstart=Medium.specificEnthalpy_pTX(1E5, Th_start, Medium.reference_X),
     Unom=1000,
-    Discretization=Greenhouses.Functions.Enumerations.Discretizations.upwind_AllowFlowReversal,
+    Discretization=Functions.Enumerations.Discretizations.upwind_AllowFlowReversal,
     Mdotnom=Mdotnom,
     pstart=10000000000,
     redeclare model HeatTransfer = Flows.FluidFlow.HeatTransfer.Constant)

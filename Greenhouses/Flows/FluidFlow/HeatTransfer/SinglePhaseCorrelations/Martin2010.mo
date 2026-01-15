@@ -2,9 +2,9 @@ within Greenhouses.Flows.FluidFlow.HeatTransfer.SinglePhaseCorrelations;
 model Martin2010
   "The Martin approach for plate heat exchangers from VDI Heat Atlas"
   extends
-    Greenhouses.Flows.FluidFlow.HeatTransfer.BaseClasses.PartialSinglePhaseCorrelation;
+    Flows.FluidFlow.HeatTransfer.BaseClasses.PartialSinglePhaseCorrelation;
   extends
-    Greenhouses.Flows.FluidFlow.HeatTransfer.BaseClasses.PartialPlateHeatExchangerCorrelation;
+    Flows.FluidFlow.HeatTransfer.BaseClasses.PartialPlateHeatExchangerCorrelation;
 
   parameter Modelica.Units.SI.Length s_w(
     min=0,
@@ -113,7 +113,7 @@ equation
   //U     = Phi * alpha "Enhanced HTC";
 
   // Pressure drop equations for longitudinal flow (0) and 90 deg patterns (1)
-  lamTurb = Greenhouses.Functions.transition_factor(
+  lamTurb = Functions.transition_factor(
     start=Re_turb - Re_tran,
     stop=Re_turb + Re_tran,
     position=Re);

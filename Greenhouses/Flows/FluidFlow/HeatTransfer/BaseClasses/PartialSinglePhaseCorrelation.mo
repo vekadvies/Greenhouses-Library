@@ -2,7 +2,7 @@ within Greenhouses.Flows.FluidFlow.HeatTransfer.BaseClasses;
 partial model PartialSinglePhaseCorrelation
   "Base class for single-phase heat transfer correlations"
     extends
-    Greenhouses.Flows.FluidFlow.HeatTransfer.BaseClasses.PartialHeatTransferCorrelation;
+    Flows.FluidFlow.HeatTransfer.BaseClasses.PartialHeatTransferCorrelation;
 
   input Medium.ThermodynamicState state "Thermodynamic state";
   replaceable package Medium = Modelica.Media.Interfaces.PartialMedium constrainedby

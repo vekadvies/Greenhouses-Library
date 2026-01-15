@@ -2,7 +2,7 @@ within Greenhouses.Flows.FluidFlow.HeatTransfer.BaseClasses;
 partial model PartialHeatTransferSmoothed
   "A partial heat transfer model that provides smooth transitions between the HTC for liquid, two-phase and vapour"
   extends
-    Greenhouses.Flows.FluidFlow.HeatTransfer.BaseClasses.PartialHeatTransferZones;
+    Flows.FluidFlow.HeatTransfer.BaseClasses.PartialHeatTransferZones;
 
   parameter Real smoothingRange(
     min=0,
@@ -38,16 +38,16 @@ equation
   x_TPV = 1 - smoothingRange/divisor;
   x_V = 1 + smoothingRange/divisor;
   if forcePhase == 0 then
-    LTP = Greenhouses.Functions.transition_factor_alt(
+    LTP = Functions.transition_factor_alt(
       switch=0,
       trans=smoothingRange,
       position=x);
-    TPV = Greenhouses.Functions.transition_factor_alt(
+    TPV = Functions.transition_factor_alt(
       switch=1,
       trans=smoothingRange,
       position=x);
     // Not really needed, but might be more robust
-    LV = Greenhouses.Functions.transition_factor(
+    LV = Functions.transition_factor(
       start=0,
       stop=1,
       position=x);
@@ -60,7 +60,7 @@ equation
     // two-phase only
     LTP = 1;
     TPV = 0;
-    LV = Greenhouses.Functions.transition_factor(
+    LV = Functions.transition_factor(
       start=0,
       stop=1,
       position=x);

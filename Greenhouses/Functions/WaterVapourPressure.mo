@@ -7,6 +7,6 @@ function WaterVapourPressure
   output Modelica.Units.SI.Pressure VP "Water vapour pressure";
 
 algorithm
-  VP := RH/100*Greenhouses.Functions.SaturatedVapourPressure(TSat);
+  VP := RH/100*Functions.SaturatedVapourPressure(TSat);
 
 end WaterVapourPressure;

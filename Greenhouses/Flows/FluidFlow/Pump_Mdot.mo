@@ -4,7 +4,7 @@ model Pump_Mdot "Pump model - Prescribed mass flow rate"
   replaceable package Medium = Modelica.Media.Water.ConstantPropertyLiquidWater constrainedby
     Modelica.Media.Interfaces.PartialMedium "Medium in the component"
       annotation (choicesAllMatching = true);
-  extends Greenhouses.Icons.Water.Pump;
+  extends Icons.Water.Pump;
 
   /***************************************** PARAMETERS *****************************************/
   parameter Modelica.Units.SI.MassFlowRate Mdot_0=1

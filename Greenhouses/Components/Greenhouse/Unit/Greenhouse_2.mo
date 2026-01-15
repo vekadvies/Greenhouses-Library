@@ -13,7 +13,7 @@ model Greenhouse_2
   Real E_el_tot_kWhm2(unit="kW.h/m2");
   Real E_el_tot(unit="kW.h");
 
-  Greenhouses.Components.Greenhouse.Cover cover(
+  Components.Greenhouse.Cover cover(
     rho=2600,
     c_p=840,
     A=surface.k,
@@ -21,18 +21,18 @@ model Greenhouse_2
     h_cov=1e-3,
     phi=0.43633231299858)
     annotation (Placement(transformation(extent={{22,112},{50,140}})));
-  Greenhouses.Components.Greenhouse.Air air(
+  Components.Greenhouse.Air air(
     A=surface.k,
     steadystate=true,
     steadystateVP=true,
     h_Air=h_Air.y)
     annotation (Placement(transformation(extent={{66,-58},{94,-30}})));
-  Greenhouses.Components.Greenhouse.Canopy canopy(
+  Components.Greenhouse.Canopy canopy(
     A=surface.k,
     steadystate=true,
     LAI=TYM.LAI)
     annotation (Placement(transformation(extent={{-78,-76},{-48,-48}})));
-  Greenhouses.Flows.HeatTransfer.Radiation_T4 Q_rad_CanCov(
+  Flows.HeatTransfer.Radiation_T4 Q_rad_CanCov(
     A=surface.k,
     epsilon_a=1,
     epsilon_b=0.84,
@@ -40,7 +40,7 @@ model Greenhouse_2
     FFb=1,
     FFab2=thScreen.FF_ij)
     annotation (Placement(transformation(extent={{-4,-82},{16,-62}})));
-  Greenhouses.Components.Greenhouse.Floor floor(
+  Components.Greenhouse.Floor floor(
     rho=1,
     c_p=2e6,
     A=surface.k,
@@ -48,7 +48,7 @@ model Greenhouse_2
     steadystate=true)
     annotation (Placement(transformation(extent={{-182,-168},{-156,-142}})));
 
-  Greenhouses.Flows.HeatTransfer.Radiation_T4 Q_rad_FlrCan(
+  Flows.HeatTransfer.Radiation_T4 Q_rad_FlrCan(
     A=surface.k,
     epsilon_a=0.89,
     epsilon_b=1,
@@ -59,36 +59,36 @@ model Greenhouse_2
         rotation=0,
         origin={-100,-84})));
 
-  Greenhouses.Flows.HeatTransfer.CanopyFreeConvection Q_cnv_CanAir(A=surface.k,
+  Flows.HeatTransfer.CanopyFreeConvection Q_cnv_CanAir(A=surface.k,
       LAI=canopy.LAI)
     annotation (Placement(transformation(extent={{-4,-62},{16,-42}})));
-  Greenhouses.Flows.HeatTransfer.FreeConvection Q_cnv_FlrAir(
+  Flows.HeatTransfer.FreeConvection Q_cnv_FlrAir(
     phi=0,
     A=surface.k,
     floor=true)
     annotation (Placement(transformation(extent={{50,-166},{70,-146}})));
-  Greenhouses.Flows.HeatTransfer.Radiation_T4 Q_rad_CovSky(
+  Flows.HeatTransfer.Radiation_T4 Q_rad_CovSky(
     epsilon_a=0.84,
     epsilon_b=1,
     A=surface.k)
     annotation (Placement(transformation(extent={{76,146},{96,166}})));
   Modelica.Thermal.HeatTransfer.Celsius.PrescribedTemperature out
     annotation (Placement(transformation(extent={{188,116},{176,128}})));
-  Greenhouses.Flows.HeatTransfer.OutsideAirConvection Q_cnv_CovOut(
+  Flows.HeatTransfer.OutsideAirConvection Q_cnv_CovOut(
     A=surface.k,
     u=u_wind.y,
     phi=0.43633231299858) annotation (Placement(transformation(
         extent={{10,10},{-10,-10}},
         rotation=180,
         origin={86,140})));
-  Greenhouses.Components.Greenhouse.Illumination illu(
+  Components.Greenhouse.Illumination illu(
     A=surface.k,
     power_input=true,
     LAI=TYM.LAI,
     P_el=500,
     p_el=100)
     annotation (Placement(transformation(extent={{-182,24},{-162,44}})));
-  Greenhouses.Flows.HeatTransfer.Radiation_T4 Q_rad_FlrCov(
+  Flows.HeatTransfer.Radiation_T4 Q_rad_FlrCov(
     A=surface.k,
     epsilon_a=0.89,
     FFa=1,
@@ -103,16 +103,16 @@ model Greenhouse_2
 
   Modelica.Blocks.Sources.Constant surface(k=1.4e4)
     annotation (Placement(transformation(extent={{-216,106},{-204,118}})));
-  Greenhouses.Flows.Sources.Vapour.PrescribedPressure prescribedVPout
+  Flows.Sources.Vapour.PrescribedPressure prescribedVPout
     annotation (Placement(transformation(extent={{188,74},{176,86}})));
-  Greenhouses.Flows.VapourMassTransfer.MV_CanopyTranspiration MV_CanAir(
+  Flows.VapourMassTransfer.MV_CanopyTranspiration MV_CanAir(
     A=surface.k,
     LAI=canopy.LAI,
     CO2_ppm=CO2_air.CO2_ppm,
     R_can=solar_model.R_t_Glob + illu.R_PAR + illu.R_NIR,
     T_can=canopy.T)
     annotation (Placement(transformation(extent={{-4,-100},{16,-80}})));
-  Greenhouses.Flows.HeatTransfer.SoilConduction Q_cd_Soil(
+  Flows.HeatTransfer.SoilConduction Q_cd_Soil(
     N_c=2,
     N_s=5,
     lambda_c=1.7,
@@ -121,7 +121,7 @@ model Greenhouse_2
     steadystate=false)
     annotation (Placement(transformation(extent={{-126,-176},{-106,-156}})));
 
-  Greenhouses.Flows.HeatTransfer.Radiation_T4 Q_rad_CanScr(
+  Flows.HeatTransfer.Radiation_T4 Q_rad_CanScr(
     A=surface.k,
     epsilon_a=1,
     epsilon_b=1,
@@ -129,7 +129,7 @@ model Greenhouse_2
     FFb=thScreen.FF_i)
     annotation (Placement(transformation(extent={{-90,-74},{-110,-54}})));
 
-  Greenhouses.Flows.HeatTransfer.Radiation_T4 Q_rad_FlrScr(
+  Flows.HeatTransfer.Radiation_T4 Q_rad_FlrScr(
     A=surface.k,
     epsilon_b=1,
     FFab1=canopy.FF,
@@ -139,12 +139,12 @@ model Greenhouse_2
     FFb=thScreen.FF_i)
     annotation (Placement(transformation(extent={{-156,-130},{-136,-110}})));
 
-  Greenhouses.Components.Greenhouse.ThermalScreen thScreen(
+  Components.Greenhouse.ThermalScreen thScreen(
     A=surface.k,
     SC=SC.y,
     steadystate=false)
     annotation (Placement(transformation(extent={{-134,50},{-104,82}})));
-  Greenhouses.Flows.HeatTransfer.Radiation_T4 Q_rad_ScrCov(
+  Flows.HeatTransfer.Radiation_T4 Q_rad_ScrCov(
     A=surface.k,
     FFb=1,
     epsilon_a=1,
@@ -152,28 +152,28 @@ model Greenhouse_2
     FFa=thScreen.FF_i)
     annotation (Placement(transformation(extent={{-40,124},{-20,144}})));
 
-  Greenhouses.Components.Greenhouse.Air_Top air_Top(
+  Components.Greenhouse.Air_Top air_Top(
     steadystate=true,
     steadystateVP=true,
     h_Top=0.4,
     A=surface.k)
     annotation (Placement(transformation(extent={{-56,86},{-26,114}})));
-  Greenhouses.Components.Greenhouse.Solar_model solar_model(
+  Components.Greenhouse.Solar_model solar_model(
     A=surface.k,
     LAI=TYM.LAI,
     SC=SC.y)
     annotation (Placement(transformation(extent={{-200,130},{-178,152}})));
-  Greenhouses.Components.Greenhouse.HeatingPipe pipe_low(
+  Components.Greenhouse.HeatingPipe pipe_low(
     d=0.051,
     freePipe=false,
     A=surface.k,
-    flow1DimInc(steadystate=false, Discretization=Greenhouses.Functions.Enumerations.Discretizations.upwind),
+    flow1DimInc(steadystate=false, Discretization=Functions.Enumerations.Discretizations.upwind),
     N=5,
     N_p=625,
     l=50,
     Mdotnom=0.0607*625)
           annotation (Placement(transformation(extent={{-34,-140},{-64,-110}})));
-  Greenhouses.Flows.HeatTransfer.Radiation_N Q_rad_LowFlr(
+  Flows.HeatTransfer.Radiation_N Q_rad_LowFlr(
     A=surface.k,
     epsilon_a=0.88,
     FFa=pipe_low.FF,
@@ -183,7 +183,7 @@ model Greenhouse_2
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={-100,-134})));
-  Greenhouses.Flows.HeatTransfer.Radiation_N Q_rad_LowCan(
+  Flows.HeatTransfer.Radiation_N Q_rad_LowCan(
     A=surface.k,
     epsilon_b=1,
     FFb=canopy.FF,
@@ -193,7 +193,7 @@ model Greenhouse_2
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-50,-98})));
-  Greenhouses.Flows.HeatTransfer.Radiation_N Q_rad_LowCov(
+  Flows.HeatTransfer.Radiation_N Q_rad_LowCov(
     A=surface.k,
     epsilon_a=0.88,
     FFa=pipe_low.FF,
@@ -205,7 +205,7 @@ model Greenhouse_2
         extent={{-10,-10},{10,10}},
         rotation=0,
         origin={6,-134})));
-  Greenhouses.Flows.HeatTransfer.PipeFreeConvection_N Q_cnv_LowAir(
+  Flows.HeatTransfer.PipeFreeConvection_N Q_cnv_LowAir(
     A=surface.k,
     d=pipe_low.d,
     freePipe=false,
@@ -213,7 +213,7 @@ model Greenhouse_2
     l=pipe_low.l,
     N=pipe_low.N)
     annotation (Placement(transformation(extent={{-4,-124},{16,-104}})));
-  Greenhouses.Flows.HeatTransfer.Radiation_N Q_rad_LowScr(
+  Flows.HeatTransfer.Radiation_N Q_rad_LowScr(
     A=surface.k,
     epsilon_a=0.88,
     FFa=pipe_low.FF,
@@ -224,14 +224,14 @@ model Greenhouse_2
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={-100,-114})));
-  Greenhouses.Flows.HeatAndVapourTransfer.Convection_Condensation Q_cnv_AirScr(
+  Flows.HeatAndVapourTransfer.Convection_Condensation Q_cnv_AirScr(
     phi=0,
     A=surface.k,
     floor=false,
     thermalScreen=true,
     Air_Cov=false,
     SC=SC.y) annotation (Placement(transformation(extent={{-72,32},{-92,12}})));
-  Greenhouses.Flows.HeatAndVapourTransfer.Convection_Condensation Q_cnv_AirCov(
+  Flows.HeatAndVapourTransfer.Convection_Condensation Q_cnv_AirCov(
     A=surface.k,
     floor=false,
     thermalScreen=true,
@@ -240,7 +240,7 @@ model Greenhouse_2
     SC=SC.y,
     phi=0.43633231299858)
     annotation (Placement(transformation(extent={{70,78},{50,58}})));
-  Greenhouses.Flows.HeatAndVapourTransfer.Convection_Condensation Q_cnv_TopCov(
+  Flows.HeatAndVapourTransfer.Convection_Condensation Q_cnv_TopCov(
     A=surface.k,
     floor=false,
     thermalScreen=true,
@@ -249,14 +249,14 @@ model Greenhouse_2
     SC=SC.y,
     phi=0.43633231299858)
     annotation (Placement(transformation(extent={{-14,108},{6,128}})));
-  Greenhouses.Flows.HeatAndVapourTransfer.Ventilation Q_ven_AirOut(
+  Flows.HeatAndVapourTransfer.Ventilation Q_ven_AirOut(
     A=surface.k,
     thermalScreen=true,
     topAir=false,
     u=u_wind.y,
     U_vents=U_vents.y,
     SC=SC.y) annotation (Placement(transformation(extent={{140,84},{160,104}})));
-  Greenhouses.Flows.HeatAndVapourTransfer.Ventilation Q_ven_TopOut(
+  Flows.HeatAndVapourTransfer.Ventilation Q_ven_TopOut(
     A=surface.k,
     thermalScreen=true,
     u=u_wind.y,
@@ -265,19 +265,19 @@ model Greenhouse_2
     topAir=true,
     SC=SC.y)
     annotation (Placement(transformation(extent={{140,102},{160,122}})));
-  Greenhouses.Flows.HeatAndVapourTransfer.AirThroughScreen Q_ven_AirTop(
+  Flows.HeatAndVapourTransfer.AirThroughScreen Q_ven_AirTop(
     A=surface.k,
     K=0.2e-3,
     SC=SC.y,
     W=9.6) annotation (Placement(transformation(extent={{4,42},{-16,22}})));
-  Greenhouses.Flows.HeatAndVapourTransfer.Convection_Evaporation Q_cnv_ScrTop(
+  Flows.HeatAndVapourTransfer.Convection_Evaporation Q_cnv_ScrTop(
     A=surface.k,
     SC=SC.y,
     MV_AirScr=Q_cnv_AirScr.MV_flow)
     annotation (Placement(transformation(extent={{-94,88},{-74,108}})));
   Modelica.Thermal.HeatTransfer.Sensors.TemperatureSensor Tair_sensor
     annotation (Placement(transformation(extent={{136,-74},{146,-64}})));
-  Greenhouses.ControlSystems.PID PID_Mdot(
+  ControlSystems.PID PID_Mdot(
     PVstart=0.5,
     CSstart=0.5,
     steadyStateInit=false,
@@ -290,7 +290,7 @@ model Greenhouse_2
     annotation (Placement(transformation(extent={{190,-108},{170,-88}})));
   Modelica.Blocks.Sources.Constant Tsoil7(k=276.15)
     annotation (Placement(transformation(extent={{-54,-174},{-64,-164}})));
-  Greenhouses.Flows.Sensors.RHSensor RH_out_sensor
+  Flows.Sensors.RHSensor RH_out_sensor
     annotation (Placement(transformation(extent={{206,96},{218,108}})));
   Modelica.Blocks.Sources.RealExpression Tout(y=TMY_and_control.y[2])
     annotation (Placement(transformation(extent={{222,112},{202,132}})));
@@ -299,7 +299,7 @@ model Greenhouse_2
   Modelica.Blocks.Sources.RealExpression u_wind(y=TMY_and_control.y[6])
     annotation (Placement(transformation(extent={{222,128},{202,148}})));
   Modelica.Blocks.Sources.RealExpression VPout(y=
-        Greenhouses.Functions.WaterVapourPressure(
+        Functions.WaterVapourPressure(
                                                  TMY_and_control.y[2],
         TMY_and_control.y[3]))
     annotation (Placement(transformation(extent={{226,70},{202,90}})));
@@ -313,7 +313,7 @@ model Greenhouse_2
   Modelica.Blocks.Sources.RealExpression Tair_setpoint(y=SP_new.y[2] +
         273.15)
     annotation (Placement(transformation(extent={{234,-50},{214,-30}})));
-  Greenhouses.Components.CropYield.TomatoYieldModel TYM(
+  Components.CropYield.TomatoYieldModel TYM(
     T_canK=canopy.T,
     LAI(start=1.06),
     C_Leaf(start=40e3),
@@ -322,30 +322,30 @@ model Greenhouse_2
     R_PAR_can=solar_model.R_PAR_Can_umol + illu.R_PAR_Can_umol,
     LAI_MAX=2.7)
     annotation (Placement(transformation(extent={{90,-154},{130,-114}})));
-  Greenhouses.Flows.CO2MassTransfer.CO2_Air CO2_air(cap_CO2=h_Air.y)
+  Flows.CO2MassTransfer.CO2_Air CO2_air(cap_CO2=h_Air.y)
     annotation (Placement(transformation(extent={{88,-10},{108,10}})));
-  Greenhouses.Flows.CO2MassTransfer.CO2_Air CO2_top(cap_CO2=0.4)
+  Flows.CO2MassTransfer.CO2_Air CO2_top(cap_CO2=0.4)
     annotation (Placement(transformation(extent={{88,58},{108,78}})));
-  Greenhouses.Flows.CO2MassTransfer.MC_ventilation2 MC_AirTop(f_vent=
+  Flows.CO2MassTransfer.MC_ventilation2 MC_AirTop(f_vent=
         Q_ven_AirTop.f_AirTop) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={98,28})));
-  Greenhouses.Flows.CO2MassTransfer.MC_ventilation2 MC_AirOut(f_vent=
+  Flows.CO2MassTransfer.MC_ventilation2 MC_AirOut(f_vent=
         Q_ven_AirOut.f_vent_total)
     annotation (Placement(transformation(extent={{140,40},{160,60}})));
-  Greenhouses.Flows.CO2MassTransfer.MC_ventilation2 MC_TopOut(f_vent=
+  Flows.CO2MassTransfer.MC_ventilation2 MC_TopOut(f_vent=
         Q_ven_TopOut.f_vent_total)
     annotation (Placement(transformation(extent={{140,66},{160,86}})));
-  Greenhouses.Flows.Sources.CO2.PrescribedConcentration CO2out
+  Flows.Sources.CO2.PrescribedConcentration CO2out
     annotation (Placement(transformation(extent={{188,46},{176,58}})));
   Modelica.Blocks.Sources.RealExpression CO2out_ppm_to_mgm3(y=340*1.94)
     annotation (Placement(transformation(extent={{222,42},{202,62}})));
-  Greenhouses.Flows.CO2MassTransfer.MC_AirCan MC_AirCan(MC_AirCan=TYM.MC_AirCan_mgCO2m2s)
+  Flows.CO2MassTransfer.MC_AirCan MC_AirCan(MC_AirCan=TYM.MC_AirCan_mgCO2m2s)
     annotation (Placement(transformation(extent={{88,-98},{108,-78}})));
-  Greenhouses.Flows.Sources.CO2.PrescribedCO2Flow MC_ExtAir(phi_ExtCO2=27)
+  Flows.Sources.CO2.PrescribedCO2Flow MC_ExtAir(phi_ExtCO2=27)
     annotation (Placement(transformation(extent={{152,-10},{132,10}})));
-  Greenhouses.ControlSystems.PID PID_CO2(
+  ControlSystems.PID PID_CO2(
     PVstart=0.5,
     CSstart=0.5,
     steadyStateInit=false,
@@ -364,7 +364,7 @@ model Greenhouse_2
   Modelica.Fluid.Sensors.Temperature T_ex_1ry(redeclare package Medium =
         Modelica.Media.Water.ConstantPropertyLiquidWater)
     annotation (Placement(transformation(extent={{-68,-102},{-60,-96}})));
-  Greenhouses.Flows.Sensors.RHSensor RH_air_sensor
+  Flows.Sensors.RHSensor RH_air_sensor
     annotation (Placement(transformation(extent={{136,-32},{148,-20}})));
   Modelica.Blocks.Sources.CombiTimeTable TMY_and_control(
     tableOnFile=true,
@@ -382,7 +382,7 @@ model Greenhouse_2
     columns=1:2,
     fileName=Modelica.Utilities.Files.loadResource("modelica://Greenhouses/Resources/Data/SC_usable_10Dec-22Nov.txt"))
     annotation (Placement(transformation(extent={{206,-62},{192,-48}})));
-  Greenhouses.ControlSystems.Climate.Control_ThScreen_2 SC(
+  ControlSystems.Climate.Control_ThScreen_2 SC(
     R_Glob_can=I_glob.y,
     R_Glob_can_min=35,
     T_air=air.T)

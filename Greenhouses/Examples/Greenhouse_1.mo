@@ -365,7 +365,7 @@ model Greenhouse_1
   Modelica.Blocks.Sources.RealExpression u_wind(y=TMY_and_control.y[6])
     annotation (Placement(transformation(extent={{222,128},{202,148}})));
   Modelica.Blocks.Sources.RealExpression VPout(y=
-        Greenhouses.Functions.WaterVapourPressure(
+        Functions.WaterVapourPressure(
                                                  TMY_and_control.y[2],
         TMY_and_control.y[3]))
     annotation (Placement(transformation(extent={{226,70},{202,90}})));

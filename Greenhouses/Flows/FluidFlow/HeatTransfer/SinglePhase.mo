@@ -2,12 +2,12 @@ within Greenhouses.Flows.FluidFlow.HeatTransfer;
 model SinglePhase "SinglePhase: Single Phase correlation"
 
 extends
-    Greenhouses.Flows.FluidFlow.HeatTransfer.BaseClasses.PartialHeatTransferZones;
+    Flows.FluidFlow.HeatTransfer.BaseClasses.PartialHeatTransferZones;
 
 replaceable model LiquidCorrelation =
-    Greenhouses.Flows.FluidFlow.HeatTransfer.BaseClasses.PartialSinglePhaseCorrelation
+    Flows.FluidFlow.HeatTransfer.BaseClasses.PartialSinglePhaseCorrelation
     constrainedby
-    Greenhouses.Flows.FluidFlow.HeatTransfer.BaseClasses.PartialSinglePhaseCorrelation
+    Flows.FluidFlow.HeatTransfer.BaseClasses.PartialSinglePhaseCorrelation
     "correlated heat transfer coefficient liquid side"
                                                      annotation(Dialog(group="Correlations"),choicesAllMatching=true);
 

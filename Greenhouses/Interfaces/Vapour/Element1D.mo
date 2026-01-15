@@ -5,9 +5,9 @@ partial model Element1D
   Modelica.Units.SI.MassFlowRate MV_flow "Mass flow rate from port_a -> port_b";
   Modelica.Units.SI.PressureDifference dP "port_a.VP - port_b.VP";
 public
-  Greenhouses.Interfaces.Vapour.WaterMassPort_a port_a annotation (
+  Interfaces.Vapour.WaterMassPort_a port_a annotation (
       Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
-  Greenhouses.Interfaces.Vapour.WaterMassPort_b port_b annotation (
+  Interfaces.Vapour.WaterMassPort_b port_b annotation (
       Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
 equation
   dP = port_a.VP - port_b.VP;

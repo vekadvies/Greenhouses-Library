@@ -18,7 +18,7 @@ model PipeFreeConvection_N
   Modelica.Units.SI.HeatFlowRate Q_flow;
   Modelica.Units.SI.TemperatureDifference dT[N] "port_a.T - port_b.T";
 
-  Greenhouses.Interfaces.Heat.HeatPorts_a[N] heatPorts_a annotation (
+  Interfaces.Heat.HeatPorts_a[N] heatPorts_a annotation (
       Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,

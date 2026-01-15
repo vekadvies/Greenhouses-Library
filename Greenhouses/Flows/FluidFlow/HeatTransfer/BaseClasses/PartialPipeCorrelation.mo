@@ -2,7 +2,7 @@ within Greenhouses.Flows.FluidFlow.HeatTransfer.BaseClasses;
 partial model PartialPipeCorrelation
   "Base class for heat transfer correlations for pipe flow"
       extends
-    Greenhouses.Flows.FluidFlow.HeatTransfer.BaseClasses.PartialHeatTransferCorrelation;
+    Flows.FluidFlow.HeatTransfer.BaseClasses.PartialHeatTransferCorrelation;
 
   parameter Modelica.Units.SI.Length d_h "Hydraulic diameter"
     annotation (Dialog(group="Geometry"));

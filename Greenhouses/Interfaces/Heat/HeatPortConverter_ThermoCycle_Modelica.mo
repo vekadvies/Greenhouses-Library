@@ -8,7 +8,7 @@ model HeatPortConverter_ThermoCycle_Modelica
     annotation (Placement(transformation(extent={{-32,-40},{28,-20}}),
         iconTransformation(extent={{-40,-40},{40,-20}})));
 public
-  Greenhouses.Interfaces.Heat.HeatPorts_a[N] heatPorts annotation (
+  Interfaces.Heat.HeatPorts_a[N] heatPorts annotation (
       Placement(transformation(extent={{-10,22},{10,42}}),
         iconTransformation(extent={{-40,20},{40,40}})));
 equation

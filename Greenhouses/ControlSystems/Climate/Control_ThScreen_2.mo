@@ -86,13 +86,13 @@ model Control_ThScreen_2
   Modelica.Blocks.Logical.GreaterEqualThreshold greaterEqual2(threshold=52*60)
     annotation (Placement(transformation(extent={{24,-72},{32,-64}}, rotation=
              0)));
-  Greenhouses.ControlSystems.Climate.Utilities.SC_closing_value SC_OWD_value(warmDay=
+  ControlSystems.Climate.Utilities.SC_closing_value SC_OWD_value(warmDay=
         true, opening=true)
     annotation (Placement(transformation(extent={{-4,-14},{-16,-2}})));
-  Greenhouses.ControlSystems.Climate.Utilities.SC_closing_value SC_OCD_value(opening=
+  ControlSystems.Climate.Utilities.SC_closing_value SC_OCD_value(opening=
         true, warmDay=false)
     annotation (Placement(transformation(extent={{-4,20},{-16,32}})));
-  Greenhouses.ControlSystems.Climate.Utilities.SC_closing_value SC_CCD_value(warmDay=
+  ControlSystems.Climate.Utilities.SC_closing_value SC_CCD_value(warmDay=
         false, opening=false)
     annotation (Placement(transformation(extent={{-2,-68},{-14,-56}})));
   Modelica.Blocks.Interfaces.RealInput RH_air(quantity="Humidity")
@@ -100,7 +100,7 @@ model Control_ThScreen_2
         origin={-110,90},
         extent={{-10,-10},{10,10}},
         rotation=0)));
-  Greenhouses.ControlSystems.PID PID_crack(
+  ControlSystems.PID PID_crack(
     Kp=0.5,
     Ti=600,
     PVmin=0.4,
@@ -125,7 +125,7 @@ model Control_ThScreen_2
     offset=0,
     startTime=6480000)
     annotation (Placement(transformation(extent={{48,60},{58,70}})));
-  Greenhouses.ControlSystems.PID PID_crack_T(
+  ControlSystems.PID PID_crack_T(
     Kp=0.5,
     Ti=600,
     CSmax=1,

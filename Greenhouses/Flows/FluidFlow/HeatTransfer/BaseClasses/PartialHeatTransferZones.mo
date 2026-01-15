@@ -3,7 +3,7 @@ partial model PartialHeatTransferZones
   "A partial heat transfer model with different HTC for liquid, two-phase and vapour"
 
 extends
-    Greenhouses.Flows.FluidFlow.HeatTransfer.BaseClasses.PartialHeatTransfer;
+    Flows.FluidFlow.HeatTransfer.BaseClasses.PartialHeatTransfer;
 
   input Modelica.Units.SI.MassFlowRate Mdotnom "Nomnial Mass flow rate";
   input Modelica.Units.SI.CoefficientOfHeatTransfer Unom_l

@@ -2,9 +2,9 @@ within Greenhouses.Flows.FluidFlow.HeatTransfer.SinglePhaseCorrelations;
 model MuleyManglik1999
   "Heat transfer in plate heat exchangers, Muley and Manglik 1999"
   extends
-    Greenhouses.Flows.FluidFlow.HeatTransfer.BaseClasses.PartialSinglePhaseCorrelation;
+    Flows.FluidFlow.HeatTransfer.BaseClasses.PartialSinglePhaseCorrelation;
   extends
-    Greenhouses.Flows.FluidFlow.HeatTransfer.BaseClasses.PartialPlateHeatExchangerCorrelation;
+    Flows.FluidFlow.HeatTransfer.BaseClasses.PartialPlateHeatExchangerCorrelation;
 
   parameter Modelica.Units.SI.ReynoldsNumber Re_lam=400 "Fully laminar";
   parameter Modelica.Units.SI.ReynoldsNumber Re_tur=1000 "Fully turbulent";
@@ -51,7 +51,7 @@ equation
   w  = abs(V_dot) / A_cro;
   // Use transport properties to determine dimensionless numbers
   Re    = rho * w * d_h / eta;
-  lamTur = Greenhouses.Functions.transition_factor(
+  lamTur = Functions.transition_factor(
     start=Re_lam,
     stop=Re_tur,
     position=Re);

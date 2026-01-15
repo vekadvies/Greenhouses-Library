@@ -59,15 +59,15 @@ public
     annotation (Dialog(group="Initialization options", tab="Initialization"));
   /******************************* HEAT TRANSFER MODEL **************************************/
 replaceable model Flow1DimIncHeatTransferModel =
-    Greenhouses.Flows.FluidFlow.HeatTransfer.MassFlowDependence
+    Flows.FluidFlow.HeatTransfer.MassFlowDependence
 constrainedby
-    Greenhouses.Flows.FluidFlow.HeatTransfer.BaseClasses.PartialHeatTransferZones
+    Flows.FluidFlow.HeatTransfer.BaseClasses.PartialHeatTransferZones
     "Fluid heat transfer model" annotation (choicesAllMatching = true);
 /***************  VARIABLES ******************/
   Modelica.Units.SI.Power Q_tot "Total heat flux exchanged by the thermal port";
   Modelica.Units.SI.Mass M_tot "Total mass of the fluid in the component";
   /********************************** CELLS *****************************************/
- Greenhouses.Flows.FluidFlow.Cell1DimInc Cells[N](
+ Flows.FluidFlow.Cell1DimInc Cells[N](
     redeclare package Medium = Medium,
     redeclare each final model HeatTransfer = Flow1DimIncHeatTransferModel,
     each Vi=V/N,
@@ -80,7 +80,7 @@ constrainedby
     hstart=hstart,
     each steadystate=steadystate)
     annotation (Placement(transformation(extent={{-26,-62},{28,-18}})));
-  Greenhouses.Interfaces.Heat.ThermalPortConverter thermalPortConverter(N=N)
+  Interfaces.Heat.ThermalPortConverter thermalPortConverter(N=N)
     annotation (Placement(transformation(extent={{-8,-4},{10,22}})));
 protected
   Modelica.Units.SI.SpecificEnthalpy hnode_[N + 1];

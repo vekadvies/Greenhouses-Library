@@ -1,7 +1,6 @@
 within Greenhouses.Flows.FluidFlow.HeatTransfer;
 model Constant "Constant: Constant heat transfer coefficient"
-  extends
-    Greenhouses.Flows.FluidFlow.HeatTransfer.BaseClasses.PartialHeatTransferZones;
+  extends Flows.FluidFlow.HeatTransfer.BaseClasses.PartialHeatTransferZones;
   Modelica.Units.SI.CoefficientOfHeatTransfer U_0 "heat transfer coefficient";
 equation
   U_0 = (Unom_l + Unom_tp + Unom_v)/3;

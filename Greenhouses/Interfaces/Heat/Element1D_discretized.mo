@@ -7,7 +7,7 @@ partial model Element1D_discretized
 
   Modelica.Units.SI.HeatFlowRate Q_flow[nNodes] "Heat flow rate from port_a -> port_b";
   Modelica.Units.SI.TemperatureDifference dT[nNodes] "port_a.T - port_b.T";
-  Greenhouses.Interfaces.Heat.HeatPorts_a[nNodes] heatPorts_a annotation (
+  Interfaces.Heat.HeatPorts_a[nNodes] heatPorts_a annotation (
       Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,

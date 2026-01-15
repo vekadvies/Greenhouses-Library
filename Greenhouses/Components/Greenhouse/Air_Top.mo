@@ -55,7 +55,7 @@ equation
   rho = Modelica.Media.Air.ReferenceAir.Air_pT.density_pT(1e5,heatPort.T);
   der(T) = 1/(rho*c_p*V)*Q_flow;
 
-  //RH = massPort.VP/.Greenhouses.Functions.SaturatedVapourPressure(heatPort.T -273.15);
+  //RH = massPort.VP/.Functions.SaturatedVapourPressure(heatPort.T -273.15);
   w_air = massPort.VP * R_a / (P_atm - massPort.VP) / R_s;
   RH=Modelica.Media.Air.MoistAir.relativeHumidity_pTX(P_atm, heatPort.T, {w_air});
 

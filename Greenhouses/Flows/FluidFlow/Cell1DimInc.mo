@@ -39,9 +39,9 @@ model Cell1DimInc "1-D incompressible fluid flow model"
 /********************************* HEAT TRANSFER MODEL ********************************/
 /* Heat transfer Model */
  replaceable model HeatTransfer =
- Greenhouses.Flows.FluidFlow.HeatTransfer.MassFlowDependence
+ Flows.FluidFlow.HeatTransfer.MassFlowDependence
  constrainedby
-    Greenhouses.Flows.FluidFlow.HeatTransfer.BaseClasses.PartialHeatTransferZones
+    Flows.FluidFlow.HeatTransfer.BaseClasses.PartialHeatTransferZones
     "Convective heat transfer"                                                         annotation (choicesAllMatching = true);
 HeatTransfer heatTransfer( redeclare final package Medium = Medium,
 final n=1,

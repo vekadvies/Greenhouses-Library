@@ -2,7 +2,7 @@ within Greenhouses.Flows.FluidFlow.HeatTransfer;
 model VaporQualityDependance
 
 extends
-    Greenhouses.Flows.FluidFlow.HeatTransfer.BaseClasses.PartialHeatTransferZones;
+    Flows.FluidFlow.HeatTransfer.BaseClasses.PartialHeatTransferZones;
 constant Real width=0.1;
   Modelica.Units.SI.CoefficientOfHeatTransfer[n] U;
 

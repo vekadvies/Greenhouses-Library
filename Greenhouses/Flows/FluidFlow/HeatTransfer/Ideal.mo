@@ -1,8 +1,7 @@
 within Greenhouses.Flows.FluidFlow.HeatTransfer;
 model Ideal "Ideal: Heat transfer without thermal resistance"
 
-  extends
-    Greenhouses.Flows.FluidFlow.HeatTransfer.BaseClasses.PartialHeatTransferZones;
+  extends Flows.FluidFlow.HeatTransfer.BaseClasses.PartialHeatTransferZones;
 equation
   T_fluid = thermalPortL.T;
   annotation(Documentation(info="<html>

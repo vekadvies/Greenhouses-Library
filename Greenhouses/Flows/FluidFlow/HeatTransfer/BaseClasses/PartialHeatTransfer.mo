@@ -1,7 +1,7 @@
 within Greenhouses.Flows.FluidFlow.HeatTransfer.BaseClasses;
 partial model PartialHeatTransfer
   "Basic component for partial heat transfer model"
-  extends Greenhouses.Icons.HeatTransfer;
+  extends Icons.HeatTransfer;
   replaceable package Medium=Modelica.Media.Interfaces.PartialMedium
   constrainedby Modelica.Media.Interfaces.PartialMedium
     "Medium in the component"
@@ -19,7 +19,7 @@ partial model PartialHeatTransfer
   Modelica.Units.SI.Temperature[n] T_fluid=Medium.temperature(FluidState)
     "Temperature of the fluid for the heat transfer process";
 
-  Greenhouses.Interfaces.Heat.ThermalPortL[n] thermalPortL annotation (
+  Interfaces.Heat.ThermalPortL[n] thermalPortL annotation (
       Placement(transformation(extent={{-24,56},{20,76}}), iconTransformation(
           extent={{-24,56},{20,76}})));
 

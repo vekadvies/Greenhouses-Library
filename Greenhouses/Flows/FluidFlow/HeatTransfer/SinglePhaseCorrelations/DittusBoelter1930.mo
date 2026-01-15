@@ -2,11 +2,11 @@ within Greenhouses.Flows.FluidFlow.HeatTransfer.SinglePhaseCorrelations;
 model DittusBoelter1930
   "The Dittus-Boelter correlation for turbulent single phase flow"
   extends
-    Greenhouses.Flows.FluidFlow.HeatTransfer.BaseClasses.PartialSinglePhaseCorrelation;
+    Flows.FluidFlow.HeatTransfer.BaseClasses.PartialSinglePhaseCorrelation;
   //extends
   //  ThermoCycle.Components.HeatFlow.HeatTransfer.BaseClasses.PartialPipeCorrelation;
   extends
-    Greenhouses.Flows.FluidFlow.HeatTransfer.BaseClasses.PartialPlateHeatExchangerCorrelation;
+    Flows.FluidFlow.HeatTransfer.BaseClasses.PartialPlateHeatExchangerCorrelation;
 
   //parameter Modelica.SIunits.Length d_h(min=0)=0 "Hydraulic diameter";
   //parameter Modelica.SIunits.Area A_cro(min=0)=Modelica.Constants.pi * d_h^2 / 4

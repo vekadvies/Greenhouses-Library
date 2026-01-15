@@ -1,6 +1,6 @@
 within Greenhouses.Flows.FluidFlow.Reservoirs;
 model SinkP "Pressure sink"
-  extends Greenhouses.Icons.Water.SourceP;
+  extends Icons.Water.SourceP;
   replaceable package Medium = Modelica.Media.Water.ConstantPropertyLiquidWater constrainedby
     Modelica.Media.Interfaces.PartialMedium "Medium in the component"
       annotation (choicesAllMatching = true);

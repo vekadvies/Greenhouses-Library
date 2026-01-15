@@ -3,7 +3,7 @@ partial model PartialHeatTransferZones_IdealFluid
   "A partial heat transfer model with one ideal nominal HTC for all zones"
 
 extends
-    Greenhouses.Flows.FluidFlow.HeatTransfer.BaseClasses.PartialHeatTransfer_IdealFluid;
+    Flows.FluidFlow.HeatTransfer.BaseClasses.PartialHeatTransfer_IdealFluid;
 
   input Modelica.Units.SI.MassFlowRate Mdotnom "Nomnial Mass flow rate";
   input Modelica.Units.SI.CoefficientOfHeatTransfer Unom

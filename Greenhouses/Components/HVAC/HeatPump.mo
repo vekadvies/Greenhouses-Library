@@ -41,9 +41,9 @@ model HeatPump
     hstart=Medium.specificEnthalpy_pTX(1E5, Th_start, Medium.reference_X),
     Unom=1000,
     redeclare model HeatTransfer =
-        Greenhouses.Flows.FluidFlow.HeatTransfer.Constant,
+        Flows.FluidFlow.HeatTransfer.Constant,
     pstart=10000000000,
-    Discretization=Greenhouses.Functions.Enumerations.Discretizations.upwind_AllowFlowReversal)
+    Discretization=Functions.Enumerations.Discretizations.upwind_AllowFlowReversal)
                         annotation (Placement(transformation(
         extent={{10,10},{-10,-10}},
         rotation=90,

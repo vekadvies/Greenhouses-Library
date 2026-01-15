@@ -1,7 +1,7 @@
 within Greenhouses.Flows.FluidFlow.HeatTransfer.BaseClasses;
 partial model PartialHeatTransferCorrelation
   "Base class for all heat transfer correlations"
-      extends Greenhouses.Icons.HeatTransfer;
+      extends Icons.HeatTransfer;
 
   input Modelica.Units.SI.MassFlowRate m_dot "Inlet massflow";
   input Modelica.Units.SI.HeatFlux q_dot "Heat flow rate per area [W/m2]";

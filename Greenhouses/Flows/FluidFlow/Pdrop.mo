@@ -1,6 +1,6 @@
 within Greenhouses.Flows.FluidFlow;
 model Pdrop "Linear pressure drop"
-  extends Greenhouses.Icons.Water.PressDrop;
+  extends Icons.Water.PressDrop;
   replaceable package Medium = Modelica.Media.Water.ConstantPropertyLiquidWater constrainedby
     Modelica.Media.Interfaces.PartialMedium "Medium in the component"
       annotation (choicesAllMatching = true);
@@ -28,11 +28,11 @@ model Pdrop "Linear pressure drop"
 equation
   InFlow.m_flow + OutFlow.m_flow = 0 "Mass balance";
     if (DPtype == PressureDrops.ORCnextHP) then
-    DELTAp = Greenhouses.Functions.TestRig.PressureDropCorrelation_HP(M_flow=
+    DELTAp = Functions.TestRig.PressureDropCorrelation_HP(M_flow=
       Mdot);
     DELTAp = InFlow.p - OutFlow.p;
     elseif (DPtype == PressureDrops.ORCnextLP) then
-    DELTAp = Greenhouses.Functions.TestRig.PressureDropCorrelation_LP(M_flow=
+    DELTAp = Functions.TestRig.PressureDropCorrelation_LP(M_flow=
       Mdot);
     DELTAp = InFlow.p - OutFlow.p;
     else

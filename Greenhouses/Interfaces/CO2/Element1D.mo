@@ -5,9 +5,9 @@ partial model Element1D
   Real MC_flow(unit="mg/(m2.s)") "CO2 flow rate from port_a -> port_b";
   Real dC(unit="mg/m3") "port_a.CO2 - port_b.CO2";
 public
-  Greenhouses.Interfaces.CO2.CO2Port_a port_a annotation (Placement(
+  Interfaces.CO2.CO2Port_a port_a annotation (Placement(
         transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
-  Greenhouses.Interfaces.CO2.CO2Port_b port_b annotation (Placement(
+  Interfaces.CO2.CO2Port_b port_b annotation (Placement(
         transformation(extent={{90,-10},{110,10}}, rotation=0)));
 equation
   dC = port_a.CO2 - port_b.CO2;

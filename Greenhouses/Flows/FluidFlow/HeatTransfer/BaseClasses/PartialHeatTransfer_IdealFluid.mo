@@ -1,7 +1,7 @@
 within Greenhouses.Flows.FluidFlow.HeatTransfer.BaseClasses;
 partial model PartialHeatTransfer_IdealFluid
                                               extends
-    Greenhouses.Icons.HeatTransfer;
+    Icons.HeatTransfer;
 // Partial heat transfer model
 
   parameter Integer n=1 "Number of heat transfer segments";
@@ -10,7 +10,7 @@ partial model PartialHeatTransfer_IdealFluid
   //Outputs defined by the heat transfer model
   output Modelica.Units.SI.HeatFlux q_dot "Heat flux";
 
-  Greenhouses.Interfaces.Heat.ThermalPortL thermalPortL annotation (Placement(
+  Interfaces.Heat.ThermalPortL thermalPortL annotation (Placement(
         transformation(extent={{-24,56},{20,76}}), iconTransformation(extent={{
             -24,56},{20,76}})));
 

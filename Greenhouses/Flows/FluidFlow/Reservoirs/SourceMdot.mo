@@ -1,7 +1,7 @@
 within Greenhouses.Flows.FluidFlow.Reservoirs;
 model SourceMdot "Flowrate source for fluid flows"
   //The pressure is defined by the next component!
-  extends Greenhouses.Icons.Water.SourceW;
+  extends Icons.Water.SourceW;
   replaceable package Medium = Modelica.Media.Water.ConstantPropertyLiquidWater constrainedby
     Modelica.Media.Interfaces.PartialMedium "Medium in the component"
       annotation (choicesAllMatching = true);

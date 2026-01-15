@@ -23,7 +23,7 @@ model GlobalSystem_1
   Real E_amb_TES_kWhm2(unit="kW.h/m2");
   Real E_el_sell_kWhm2(unit="kW.h/m2");
   Real E_el_buy_kWhm2(unit="kW.h/m2");
-  Greenhouses.Components.HVAC.CHP CHP(
+  Components.HVAC.CHP CHP(
     redeclare package Medium = Modelica.Media.Water.ConstantPropertyLiquidWater,
     Tmax=373.15,
     Th_nom=773.15)
@@ -38,7 +38,7 @@ model GlobalSystem_1
     annotation (Placement(transformation(extent={{40,-10},{24,6}})));
   Modelica.Blocks.Sources.Constant set_Qdot_nom_gas_CHP(k=2800e3)
     annotation (Placement(transformation(extent={{62,-8},{52,2}})));
-  Greenhouses.Components.HVAC.HeatStorageWaterHeater.Heat_storage_hx_R TES(
+  Components.HVAC.HeatStorageWaterHeater.Heat_storage_hx_R TES(
     U_amb=2,
     steadystate_hx=false,
     Unom_hx=1000,
@@ -71,18 +71,18 @@ model GlobalSystem_1
   Modelica.Fluid.Sensors.Temperature T_ex_G(redeclare package Medium =
         Modelica.Media.Water.ConstantPropertyLiquidWater)
     annotation (Placement(transformation(extent={{-16,34},{-8,40}})));
-  Greenhouses.Flows.FluidFlow.Pump_Mdot pump_2ry(redeclare package Medium =
+  Flows.FluidFlow.Pump_Mdot pump_2ry(redeclare package Medium =
         Modelica.Media.Water.ConstantPropertyLiquidWater, Mdot_0=20)
     annotation (Placement(transformation(extent={{-60,-46},{-48,-34}})));
-  Greenhouses.Flows.FluidFlow.Reservoirs.SinkP sinkP_2ry(redeclare package
+  Flows.FluidFlow.Reservoirs.SinkP sinkP_2ry(redeclare package
       Medium = Modelica.Media.Water.ConstantPropertyLiquidWater, p0=1000000)
     annotation (Placement(transformation(extent={{-76,-30},{-88,-18}})));
-  Greenhouses.Flows.FluidFlow.Pdrop pdrop_2ry(
+  Flows.FluidFlow.Pdrop pdrop_2ry(
     Mdot_max=0.5,
     redeclare package Medium = Modelica.Media.Water.ConstantPropertyLiquidWater,
     DELTAp_max=1100)
     annotation (Placement(transformation(extent={{-88,-46},{-76,-34}})));
-  Greenhouses.Components.Greenhouse.Unit.Greenhouse   G
+  Components.Greenhouse.Unit.Greenhouse   G
     annotation (Placement(transformation(extent={{46,26},{94,62}})));
   ControlSystems.HVAC.Control_1 controller(
     T_high_tank=TES.flow1Dim.Cells[15].T,
@@ -90,15 +90,15 @@ model GlobalSystem_1
     T_min=303.15,
     Mdot_max=86)
     annotation (Placement(transformation(extent={{-74,-2},{-54,18}})));
-  Greenhouses.Flows.FluidFlow.Pump_Mdot pump_1ry(redeclare package Medium =
+  Flows.FluidFlow.Pump_Mdot pump_1ry(redeclare package Medium =
         Modelica.Media.Water.ConstantPropertyLiquidWater, Mdot_0=0.528)
     annotation (Placement(transformation(extent={{24,44},{36,56}})));
-  Greenhouses.Flows.FluidFlow.Pdrop pdrop_1ry(
+  Flows.FluidFlow.Pdrop pdrop_1ry(
     redeclare package Medium = Modelica.Media.Water.ConstantPropertyLiquidWater,
     Mdot_max=0.5,
     DELTAp_max=1100)
     annotation (Placement(transformation(extent={{-6,48},{6,60}})));
-  Greenhouses.Flows.FluidFlow.Reservoirs.SinkP sinkP_1ry(redeclare package
+  Flows.FluidFlow.Reservoirs.SinkP sinkP_1ry(redeclare package
       Medium = Modelica.Media.Water.ConstantPropertyLiquidWater, p0=1000000)
     annotation (Placement(transformation(extent={{6,62},{-6,74}})));
   Modelica.Blocks.Sources.RealExpression set_Mdot_2ry(y=Mdot_2ry)

@@ -92,9 +92,9 @@ model HeatPump_ConsoClim
     redeclare package Medium = Medium1,
     hstart=Medium1.specificEnthalpy_pTX(1E5, Th_start, Medium1.reference_X),
     redeclare model HeatTransfer =
-        Greenhouses.Flows.FluidFlow.HeatTransfer.Constant,
+        Flows.FluidFlow.HeatTransfer.Constant,
     pstart=10000000000,
-    Discretization=Greenhouses.Functions.Enumerations.Discretizations.upwind_AllowFlowReversal)
+    Discretization=Functions.Enumerations.Discretizations.upwind_AllowFlowReversal)
                         annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,

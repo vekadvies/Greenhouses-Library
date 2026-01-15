@@ -11,7 +11,7 @@ model PrescribedCO2Flow "Fixed CO2 flow boundary condition"
   /******************* Variables *******************/
   Real MC_flow(unit="mg/(m2.s)") "Fixed heat flow rate at port";
 
-  Greenhouses.Interfaces.CO2.CO2Port_b port annotation (Placement(
+  Interfaces.CO2.CO2Port_b port annotation (Placement(
         transformation(extent={{90,-10},{110,10}}, rotation=0)));
   Modelica.Blocks.Interfaces.RealInput U_MCext
     annotation (Placement(transformation(extent={{-142,-18},{-102,22}})));

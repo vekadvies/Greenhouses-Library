@@ -1,7 +1,7 @@
 within Greenhouses.Flows.FluidFlow.HeatTransfer;
 model Smoothed "Smoothed: Smooth transitions between the different zones"
   extends
-    Greenhouses.Flows.FluidFlow.HeatTransfer.BaseClasses.PartialHeatTransferSmoothed;
+    Flows.FluidFlow.HeatTransfer.BaseClasses.PartialHeatTransferSmoothed;
 equation
   for i in 1:n loop
     U[i] = U_nom * massFlowFactor;

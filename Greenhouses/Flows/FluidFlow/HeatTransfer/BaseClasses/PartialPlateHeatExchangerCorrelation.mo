@@ -2,7 +2,7 @@ within Greenhouses.Flows.FluidFlow.HeatTransfer.BaseClasses;
 partial model PartialPlateHeatExchangerCorrelation
   "Base class for heat transfer correlations for plate heat exchangers"
       extends
-    Greenhouses.Flows.FluidFlow.HeatTransfer.BaseClasses.PartialHeatTransferCorrelation;
+    Flows.FluidFlow.HeatTransfer.BaseClasses.PartialHeatTransferCorrelation;
 
   parameter Modelica.Units.SI.Length a_hat(
     min=0,
